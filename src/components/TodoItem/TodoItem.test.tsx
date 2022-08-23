@@ -7,7 +7,6 @@ const itemProps = { id: 1, userId: 1, title: 'test', completed: false, handler: 
 
 describe('TodoItem tests', () => {
 
-
     test('check render Todoitem', () => {
         render(<TodoItem {...itemProps} />)
         expect(screen.getByTestId('todoItem')).toBeInTheDocument()

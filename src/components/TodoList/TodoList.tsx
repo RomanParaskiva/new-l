@@ -3,7 +3,7 @@ import axios from 'axios'
 import TodoItem from '../TodoItem/TodoItem'
 
 import { TodoType } from '../../../types'
-import ErrorBoundary from '../../../../new-l/src/components/ErrorBoundary/ErrorBoundary'
+import ErrorBoundary from '../ErrorBoundary/ErrorBoundary'
 
 interface IState {
     data: TodoType[],

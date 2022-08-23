@@ -18,9 +18,7 @@ describe('render TodoList', () => {
 
         render(<TodoList />)
 
-        expect(getSpy).toBeCalled()
-
-        
+        expect(getSpy).toBeCalled()     
 
     })
 
