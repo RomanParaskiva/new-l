@@ -1,32 +1,26 @@
 import React from 'react'
-import styled from 'styled-components'
+import classNames from 'classnames'
 
 
 
-const FieldItem = ({ handleClick, grid, i, k }:
+const FieldItem = ({ handleClick, itemValue, itemWidth }:
     {
         handleClick: () => void, 
-        grid: number[][],
-        i: number,
-        k: number
+        itemValue: number,
+        itemWidth: number
     }) => {
 
-        const styledDiv =  styled.div()`
-    width: 20px;
-    height: 20px;
-    background-color: ${grid[i][k]} ? 'violet' : undefined;
-    border: 1px solid black;
-`
+    const itemStyles = classNames(`d-flex w-[${itemWidth}px] h-[${itemWidth}px] border-2 border-solid`, itemValue ? 'bg-pink-300' : '') 
+      
     return (
-        <styledDiv
-            onClick={() => {
-                handleClick()
-            }}
+        <div
+            className={itemStyles}
+            onClick={handleClick}
             style={{
                
             }}>
 
-        </styledDiv>
+        </div>
     )
 }
 

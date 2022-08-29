@@ -19,7 +19,8 @@ const operations = [
 
 const Grid = styled.div`
     display: grid;
-    grid-template-columns: repeat(${numCols}, 20px)
+    grid-template-columns: repeat(${numCols}, 20px);
+    grid-template-rows: repeat(${numRows}, 20px);
 `
 
 const Field: React.FC = () => {
@@ -88,9 +89,8 @@ const Field: React.FC = () => {
                                 })
                                 setGrid(newGrid)
                             }}
-                            grid={grid}
-                            i={i}
-                            k={k}
+                            itemValue={grid[i][k]}                           
+                            itemWidth={20}
                         />
                     ))
                 )}
