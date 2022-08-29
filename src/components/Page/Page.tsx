@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Header } from '../Header/Header'
-import { TodoList } from '../TodoList/TodoList'
+import Field from '../Field/Field'
 import './page.css'
 
 
@@ -12,7 +12,7 @@ export const Page: React.FC = () => {
       <Header />
 
       <section>
-        <TodoList />
+        <Field />
       </section>
     </article>
   )
