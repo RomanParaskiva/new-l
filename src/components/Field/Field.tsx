@@ -11,8 +11,8 @@ type Props = {
 
 const Grid =  styled.div<Props>`
         display: grid;
-        grid-template-columns: repeat(${props => props.numCols}, 20px);
-        grid-template-rows: repeat(${props => props.numRows}, 20px);
+        grid-template-columns: repeat(${props => props.numCols}, 15px);
+        grid-template-rows: repeat(${props => props.numRows}, 15px);
     `
 
 const Field = () => {

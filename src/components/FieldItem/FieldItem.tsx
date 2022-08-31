@@ -9,7 +9,7 @@ const FieldItem = ({ handleClick, itemValue } :
         itemValue: number
     }) => {
 
-    const itemStyles = classNames(`d-flex w-[20px] h-[20px] border-2 border-solid`, itemValue ? 'bg-pink-300' : '')
+    const itemStyles = classNames(`d-flex w-[15px] h-[15px] border border-solid`, itemValue ? 'bg-pink-300' : '')
 
     return (
         <div

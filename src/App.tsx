@@ -5,10 +5,10 @@ import useGrid from './hooks/grid.hook'
 
 
 const App = () => {
-  const { grid, running, start, handleItemClick, clear, numRows, numCols, changeSpeed } = useGrid()
+  const value = useGrid()
 
   return (
-    <gridContext.Provider value={{ grid, running, start, handleItemClick, numRows, numCols, clear, changeSpeed }}>
+    <gridContext.Provider value={{...value}}>
       <div className="App">
         <Page />
       </div>

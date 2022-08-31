@@ -12,31 +12,30 @@ const operations = [
     [-1, 0]
 ]
 
+const generateGrid = (numRows:number, numCols:number) => {
+    const rows: number[][] = []
+    for (let i = 0; i < numRows; i++) {
+        const col: number[] = Array.from(Array(numCols), () => 0)
+        rows.push(col)
+    }
+    return rows
+}
+
 const useGrid = () => {
     const [numCols, setNumCols] = useState(50)
     const [numRows, setNumRows] = useState(50)
     const [speed, setSpeed] = useState(1000)
 
     const [grid, setGrid] = useState(() => {
-        const rows:number[][] = []
-        for (let i = 0; i < numRows; i++) {
-            const col:number[] = Array.from(Array(numCols), () => 0)
-            rows.push(col)
-        }
-        return rows
+        generateGrid(numRows, numCols)
     })
 
     const [running, setRunning] = useState(false)
 
-    const generateEmptyGrid = () => {        
-        const rows:number[][] = []
-        for (let i = 0; i < numRows; i++) {
-            const col:number[] = Array.from(Array(numCols), () => 0)
-            rows.push(col)
-        }
-        setGrid(rows)
-    }  
-   
+    const generateEmptyGrid = () => {  
+        setGrid(() => generateGrid(numRows, numCols))
+    }
+
 
     const runningRef = useRef(running)
 
@@ -47,7 +46,7 @@ const useGrid = () => {
     runningRef.current = running
 
     const runSimulation = () => {
-        
+
         if (!runningRef.current) return
 
         setGrid(g => produce(g, newGrid => {
@@ -69,9 +68,9 @@ const useGrid = () => {
                     }
                 }
             }
-        }))    
-       setTimeout(runSimulation, speedRef.current)
-        
+        }))
+        setTimeout(runSimulation, speedRef.current)
+
     }
 
     const start = () => {
@@ -88,7 +87,7 @@ const useGrid = () => {
         generateEmptyGrid()
     }
 
-    const changeSpeed = (v:number) => {
+    const changeSpeed = (v: number) => {
         setSpeed(v)
         speedRef.current = v
     }
@@ -100,8 +99,13 @@ const useGrid = () => {
         setGrid(newGrid)
     }
 
+    const setSize = (x:number, y:number) => {
+        setNumRows(x)
+        setNumCols(y)
+    }
 
-    return { clear, grid, start, running, handleItemClick, numRows, numCols, changeSpeed }
+
+    return { clear, grid, setSize, start, running, handleItemClick, numRows, numCols, changeSpeed }
 }
 
 export default useGrid
