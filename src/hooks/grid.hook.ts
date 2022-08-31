@@ -12,7 +12,7 @@ const operations = [
     [-1, 0]
 ]
 
-const generateGrid = (numRows:number, numCols:number) => {
+const generateGrid = (numRows: number, numCols: number) => {
     const rows: number[][] = []
     for (let i = 0; i < numRows; i++) {
         const col: number[] = Array.from(Array(numCols), () => 0)
@@ -26,15 +26,11 @@ const useGrid = () => {
     const [numRows, setNumRows] = useState(50)
     const [speed, setSpeed] = useState(1000)
 
-    const [grid, setGrid] = useState(() => {
-        generateGrid(numRows, numCols)
-    })
+    const [grid, setGrid] = useState(() => generateGrid(numRows, numCols))
 
     const [running, setRunning] = useState(false)
 
-    const generateEmptyGrid = () => {  
-        setGrid(() => generateGrid(numRows, numCols))
-    }
+    const generateEmptyGrid = () => setGrid(() => generateGrid(numRows, numCols))
 
 
     const runningRef = useRef(running)
@@ -99,7 +95,7 @@ const useGrid = () => {
         setGrid(newGrid)
     }
 
-    const setSize = (x:number, y:number) => {
+    const setSize = (x: number, y: number) => {
         setNumRows(x)
         setNumCols(y)
     }
