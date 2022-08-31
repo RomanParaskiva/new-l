@@ -18,9 +18,10 @@ const useGrid = () => {
     const [speed, setSpeed] = useState(1000)
 
     const [grid, setGrid] = useState(() => {
-        const rows = []
+        const rows:number[][] = []
         for (let i = 0; i < numRows; i++) {
-            rows.push(Array.from(Array(numCols), () => 0))
+            const col:number[] = Array.from(Array(numCols), () => 0)
+            rows.push(col)
         }
         return rows
     })
@@ -28,9 +29,10 @@ const useGrid = () => {
     const [running, setRunning] = useState(false)
 
     const generateEmptyGrid = () => {        
-        const rows = []
+        const rows:number[][] = []
         for (let i = 0; i < numRows; i++) {
-            rows.push(Array.from(Array(numCols), () => 0))
+            const col:number[] = Array.from(Array(numCols), () => 0)
+            rows.push(col)
         }
         setGrid(rows)
     }  
@@ -38,10 +40,14 @@ const useGrid = () => {
 
     const runningRef = useRef(running)
 
+    const speedRef = useRef(speed)
+
+    speedRef.current = speed
+
     runningRef.current = running
 
-    const runSimulation = useCallback((speed:number) => {
-
+    const runSimulation = () => {
+        
         if (!runningRef.current) return
 
         setGrid(g => produce(g, newGrid => {
@@ -63,16 +69,16 @@ const useGrid = () => {
                     }
                 }
             }
-        }))
-
-        setTimeout(runSimulation, speed)
-    }, [numRows, numCols])
+        }))    
+       setTimeout(runSimulation, speedRef.current)
+        
+    }
 
     const start = () => {
         setRunning(prev => !prev)
         if (!running) {
             runningRef.current = true
-            runSimulation(speed)
+            runSimulation()
         }
     }
 
@@ -83,9 +89,8 @@ const useGrid = () => {
     }
 
     const changeSpeed = (v:number) => {
-        setSpeed(() => v)
-        console.log(speed);
-        
+        setSpeed(v)
+        speedRef.current = v
     }
 
     const handleItemClick = (i: number, k: number) => {
