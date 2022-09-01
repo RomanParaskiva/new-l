@@ -60,21 +60,24 @@ export const Header = () => {
 
           <div>
             <button
-              className={defaultSizeBtnStyle}
+              disabled={running}
+              className={classNames(defaultSizeBtnStyle, 'disabled:bg-gray-400 disabled:text-gray-600')}
               onClick={() => setGridSize(50, 50)}
             >
               50/50
             </button>
 
             <button
-              className={defaultSizeBtnStyle}
+              disabled={running}
+              className={classNames(defaultSizeBtnStyle, 'disabled:bg-gray-400 disabled:text-gray-600')}
               onClick={() => setGridSize(30, 30)}
             >
               30/30
             </button>
 
             <button
-              className={defaultSizeBtnStyle}
+              disabled={running}
+              className={classNames(defaultSizeBtnStyle, 'disabled:bg-gray-400 disabled:text-gray-600')}
               onClick={() => setGridSize(100, 100)}
             >
               100/100
