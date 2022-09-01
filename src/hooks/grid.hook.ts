@@ -24,35 +24,27 @@ const generateGrid = (numRows: number, numCols: number) => {
 const useGrid = () => {
     const [numCols, setNumCols] = useState(50)
     const [numRows, setNumRows] = useState(50)
+    const [size, setSize] = useState([50, 50])
     const [speed, setSpeed] = useState(1000)
 
-    const [grid, setGrid] = useState(() => generateGrid(numRows, numCols))
+    const [grid, setGrid] = useState(() => generateGrid(size[0], size[1]))
 
     const [running, setRunning] = useState(false)
 
-    const generateEmptyGrid = () => setGrid(() => generateGrid(numRows, numCols))
+    const generateEmptyGrid = () => setGrid(() => generateGrid(size[0], size[1]))
 
-
-    const runningRef = useRef(running)
-
-    const speedRef = useRef(speed)
-
-    speedRef.current = speed
-
-    runningRef.current = running
-
-    const runSimulation = () => {
-
-        if (!runningRef.current) return
+    const regenerateGrid = () => {
 
         setGrid(g => produce(g, newGrid => {
-            for (let i = 0; i < numRows; i++) {
-                for (let k = 0; k < numCols; k++) {
+            console.log(size);
+
+            for (let i = 0; i < size[0]; i++) {
+                for (let k = 0; k < size[1]; k++) {
                     let neighbors = 0
                     operations.forEach(([x, y]) => {
                         const newI = i + x
                         const newK = k + y
-                        if (newI >= 0 && newI < numRows && newK >= 0 && newK < numCols) {
+                        if (newI >= 0 && newI < size[0] && newK >= 0 && newK < size[1]) {
                             neighbors += g[newI][newK]
                         }
                     })
@@ -65,8 +57,21 @@ const useGrid = () => {
                 }
             }
         }))
-        setTimeout(runSimulation, speedRef.current)
+    }
 
+
+    const runningRef = useRef(running)
+
+    const speedRef = useRef(speed)
+
+    speedRef.current = speed
+
+    runningRef.current = running
+
+    const runSimulation = () => {
+        if (!runningRef.current) return
+        regenerateGrid()
+        setTimeout(runSimulation, speedRef.current)
     }
 
     const start = () => {
@@ -95,13 +100,46 @@ const useGrid = () => {
         setGrid(newGrid)
     }
 
-    const setSize = (x: number, y: number) => {
-        setNumRows(x)
-        setNumCols(y)
+    const setGridSize = (x: number, y: number) => {
+        setSize((prev) => [x, y])
+        let newGrid: number[][] = []
+        if (x <= size[0]) {
+            newGrid = produce(grid, gCopy => {
+                gCopy = grid.slice(0, x)
+                for (let i = 0; i < x; i++) {
+                    if (gCopy[i].length <= y) {
+                        for (let k = gCopy[i].length; k < y; k++) {
+                            gCopy[i].push(0)
+                        }
+                    } else {
+                        gCopy[i] = gCopy[i].slice(0, y)
+                    }
+                }
+                return gCopy
+            })
+        } else {
+            newGrid = produce(grid, gCopy => {
+                gCopy = []
+                for (let i = 0; i < x; i++) {
+                    if (i < grid.length) {
+                        const col = produce(grid[i], newRow => {
+                            newRow = [...grid[i], ...Array.from(Array(y - grid[i].length), () => 0)]
+                            return newRow
+                        })
+                        gCopy[i] = col
+                    } else {
+                        const col = Array.from(Array(y), () => 0)
+                        gCopy.push(col)
+                    }
+                }
+                return gCopy
+            })
+        }
+        setGrid(newGrid)
     }
 
 
-    return { clear, grid, setSize, start, running, handleItemClick, numRows, numCols, changeSpeed }
+    return { clear, grid, setGridSize, start, running, handleItemClick, size, changeSpeed }
 }
 
 export default useGrid

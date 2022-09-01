@@ -6,7 +6,7 @@ import './header.css'
 
 
 export const Header = () => {
-  const { start, clear, running, changeSpeed, setSize } = useContext(gridContext)
+  const { start, clear, running, changeSpeed, setGridSize } = useContext(gridContext)
 
   const btnStyle = classNames('p-2 rounded-xl text-sm outline-none uppercase text-gray-600 hover:scale-105 font-semibold', `${running ? 'bg-red-300' : 'bg-green-300'}`)
 
@@ -61,21 +61,21 @@ export const Header = () => {
           <div>
             <button
               className={defaultSizeBtnStyle}
-              onClick={() => setSize(50, 50)}
+              onClick={() => setGridSize(50, 50)}
             >
               50/50
             </button>
 
             <button
               className={defaultSizeBtnStyle}
-              onClick={() => setSize(70, 50)}
+              onClick={() => setGridSize(30, 30)}
             >
-              70/50
+              30/30
             </button>
 
             <button
               className={defaultSizeBtnStyle}
-              onClick={() => setSize(100, 100)}
+              onClick={() => setGridSize(100, 100)}
             >
               100/100
             </button>

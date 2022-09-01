@@ -6,10 +6,9 @@ export type GridContext = {
     start: () => void,
     handleItemClick: (i:number, k:number) => void,
     clear: () => void,
-    numRows: number,
-    numCols: number,
     changeSpeed: (v: number) => void,
-    setSize: (x:number, y:number) => void
+    setGridSize: (x:number, y:number) => void,
+    size: number[]
     }
 
 const grid:number[][] = []
@@ -17,6 +16,7 @@ const start = () => {}
 const handleItemClick = () => {}
 const clear = () => {}
 const changeSpeed = () => {}
-const setSize = () => {}
+const setGridSize = () => {}
+const size = [50, 50]
 
-export const gridContext = createContext<GridContext>({grid, start, handleItemClick, clear, numRows: 50, numCols: 50, changeSpeed, setSize })
+export const gridContext = createContext<GridContext>({grid, start, handleItemClick, clear, size, changeSpeed, setGridSize })
