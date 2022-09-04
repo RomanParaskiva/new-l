@@ -1,12 +1,10 @@
-import React from 'react'
+import React from "react";
 
-import { Header } from '../Header/Header'
-import  Field  from '../Field/Field'
-import './page.css'
-
+import { Header } from "../Header/Header";
+import Field from "../Field/Field";
+import "./page.css";
 
 export const Page: React.FC = () => {
-
   return (
     <div>
       <Header />
@@ -15,5 +13,5 @@ export const Page: React.FC = () => {
         <Field />
       </section>
     </div>
-  )
-}
+  );
+};

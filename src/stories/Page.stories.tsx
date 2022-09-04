@@ -1,15 +1,15 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { Page } from '../components/Page/Page'
+import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { Page } from "../components/Page/Page";
 
 export default {
-  title: 'Example/Page',
+  title: "Example/Page",
   component: Page,
   parameters: {
     // More on Story layout: https://storybook.js.org/docs/react/configure/story-layout
-    layout: 'fullscreen',
+    layout: "fullscreen",
   },
-} as ComponentMeta<typeof Page>
+} as ComponentMeta<typeof Page>;
 
-const Template: ComponentStory<typeof Page> = (args) => <Page {...args} />
+const Template: ComponentStory<typeof Page> = (args) => <Page {...args} />;
 
-export const NormalPage = Template.bind({})
+export const NormalPage = Template.bind({});

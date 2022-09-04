@@ -14,6 +14,54 @@ Object {
               Game of Life
             </h1>
           </div>
+          <div
+            class="mx-auto flex flex-col gap-3 bg-slate-100 rounded-2xl p-3"
+          >
+            <div>
+              <button
+                class="p-2 rounded-xl text-sm outline-none uppercase text-gray-600 hover:scale-105 font-semibold bg-green-300"
+              >
+                Старт
+              </button>
+              <button
+                class="p-2 text-sm rounded-xl uppercase outline-none text-gray-600 hover:scale-105 font-semibold bg-blue-300"
+              >
+                Сброс
+              </button>
+              <button
+                class="p-2 text-sm rounded-xl uppercase outline-none text-gray-600 hover:scale-105 font-semibold bg-blue-300"
+              >
+                обычная скорость
+              </button>
+              <button
+                class="p-2 text-sm rounded-xl uppercase outline-none text-gray-600 hover:scale-105 font-semibold bg-blue-300"
+              >
+                быстрее
+              </button>
+              <button
+                class="p-2 text-sm rounded-xl uppercase outline-none text-gray-600 hover:scale-105 font-semibold bg-blue-300"
+              >
+                еще быстрее
+              </button>
+            </div>
+            <div>
+              <button
+                class="p-2 text-sm rounded-xl uppercase outline-none text-gray-600 hover:scale-105 font-semibold bg-purple-300 disabled:bg-gray-400 disabled:text-gray-600"
+              >
+                50/50
+              </button>
+              <button
+                class="p-2 text-sm rounded-xl uppercase outline-none text-gray-600 hover:scale-105 font-semibold bg-purple-300 disabled:bg-gray-400 disabled:text-gray-600"
+              >
+                30/30
+              </button>
+              <button
+                class="p-2 text-sm rounded-xl uppercase outline-none text-gray-600 hover:scale-105 font-semibold bg-purple-300 disabled:bg-gray-400 disabled:text-gray-600"
+              >
+                100/100
+              </button>
+            </div>
+          </div>
         </div>
       </header>
     </div>
@@ -26,6 +74,54 @@ Object {
             <h1>
               Game of Life
             </h1>
+          </div>
+          <div
+            class="mx-auto flex flex-col gap-3 bg-slate-100 rounded-2xl p-3"
+          >
+            <div>
+              <button
+                class="p-2 rounded-xl text-sm outline-none uppercase text-gray-600 hover:scale-105 font-semibold bg-green-300"
+              >
+                Старт
+              </button>
+              <button
+                class="p-2 text-sm rounded-xl uppercase outline-none text-gray-600 hover:scale-105 font-semibold bg-blue-300"
+              >
+                Сброс
+              </button>
+              <button
+                class="p-2 text-sm rounded-xl uppercase outline-none text-gray-600 hover:scale-105 font-semibold bg-blue-300"
+              >
+                обычная скорость
+              </button>
+              <button
+                class="p-2 text-sm rounded-xl uppercase outline-none text-gray-600 hover:scale-105 font-semibold bg-blue-300"
+              >
+                быстрее
+              </button>
+              <button
+                class="p-2 text-sm rounded-xl uppercase outline-none text-gray-600 hover:scale-105 font-semibold bg-blue-300"
+              >
+                еще быстрее
+              </button>
+            </div>
+            <div>
+              <button
+                class="p-2 text-sm rounded-xl uppercase outline-none text-gray-600 hover:scale-105 font-semibold bg-purple-300 disabled:bg-gray-400 disabled:text-gray-600"
+              >
+                50/50
+              </button>
+              <button
+                class="p-2 text-sm rounded-xl uppercase outline-none text-gray-600 hover:scale-105 font-semibold bg-purple-300 disabled:bg-gray-400 disabled:text-gray-600"
+              >
+                30/30
+              </button>
+              <button
+                class="p-2 text-sm rounded-xl uppercase outline-none text-gray-600 hover:scale-105 font-semibold bg-purple-300 disabled:bg-gray-400 disabled:text-gray-600"
+              >
+                100/100
+              </button>
+            </div>
           </div>
         </div>
       </header>
@@ -40,6 +136,54 @@ Object {
           <h1>
             Game of Life
           </h1>
+        </div>
+        <div
+          class="mx-auto flex flex-col gap-3 bg-slate-100 rounded-2xl p-3"
+        >
+          <div>
+            <button
+              class="p-2 rounded-xl text-sm outline-none uppercase text-gray-600 hover:scale-105 font-semibold bg-green-300"
+            >
+              Старт
+            </button>
+            <button
+              class="p-2 text-sm rounded-xl uppercase outline-none text-gray-600 hover:scale-105 font-semibold bg-blue-300"
+            >
+              Сброс
+            </button>
+            <button
+              class="p-2 text-sm rounded-xl uppercase outline-none text-gray-600 hover:scale-105 font-semibold bg-blue-300"
+            >
+              обычная скорость
+            </button>
+            <button
+              class="p-2 text-sm rounded-xl uppercase outline-none text-gray-600 hover:scale-105 font-semibold bg-blue-300"
+            >
+              быстрее
+            </button>
+            <button
+              class="p-2 text-sm rounded-xl uppercase outline-none text-gray-600 hover:scale-105 font-semibold bg-blue-300"
+            >
+              еще быстрее
+            </button>
+          </div>
+          <div>
+            <button
+              class="p-2 text-sm rounded-xl uppercase outline-none text-gray-600 hover:scale-105 font-semibold bg-purple-300 disabled:bg-gray-400 disabled:text-gray-600"
+            >
+              50/50
+            </button>
+            <button
+              class="p-2 text-sm rounded-xl uppercase outline-none text-gray-600 hover:scale-105 font-semibold bg-purple-300 disabled:bg-gray-400 disabled:text-gray-600"
+            >
+              30/30
+            </button>
+            <button
+              class="p-2 text-sm rounded-xl uppercase outline-none text-gray-600 hover:scale-105 font-semibold bg-purple-300 disabled:bg-gray-400 disabled:text-gray-600"
+            >
+              100/100
+            </button>
+          </div>
         </div>
       </div>
     </header>

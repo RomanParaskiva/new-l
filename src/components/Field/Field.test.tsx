@@ -1,14 +1,11 @@
-import { render } from "@testing-library/react"
+import { render } from "@testing-library/react";
 
-import Field  from "./Field"
+import { Field } from "./Field";
 
-describe('test Page component', () => {
+describe("test Field component", () => {
+    test("renders Field component", () => {
+        const { container } = render(<Field />);
 
-    test('renders Page component', () => {
-        
-       const { container } = render(<Field />)
-
-        expect(container).toMatchSnapshot()
-    })
-
-})
+        expect(container).toMatchSnapshot();
+    });
+});

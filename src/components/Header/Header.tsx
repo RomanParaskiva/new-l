@@ -1,18 +1,21 @@
-import React, { useContext } from 'react'
-import classNames from 'classnames'
-import { gridContext } from '../../context/gridContext'
+import React, { useContext } from "react";
+import classNames from "classnames";
+import { gridContext } from "../../context/gridContext";
 
-import './header.css'
-
+import "./header.css";
 
 export const Header = () => {
-  const { start, clear, running, changeSpeed, setGridSize } = useContext(gridContext)
+  const { start, clear, running, changeSpeed, setGridSize } =
+    useContext(gridContext);
 
-  const btnStyle = classNames('p-2 rounded-xl text-sm outline-none uppercase text-gray-600 hover:scale-105 font-semibold', `${running ? 'bg-red-300' : 'bg-green-300'}`)
+  const btnStyle = classNames(
+        "p-2 rounded-xl text-sm outline-none uppercase text-gray-600 hover:scale-105 font-semibold",
+        `${running ? "bg-red-300" : "bg-green-300"}`
+    );
 
-  const defaultBtnStyle = `p-2 text-sm rounded-xl uppercase outline-none text-gray-600 hover:scale-105 font-semibold bg-blue-300`
+  const defaultBtnStyle = `p-2 text-sm rounded-xl uppercase outline-none text-gray-600 hover:scale-105 font-semibold bg-blue-300`;
 
-  const defaultSizeBtnStyle = `p-2 text-sm rounded-xl uppercase outline-none text-gray-600 hover:scale-105 font-semibold bg-purple-300`
+  const defaultSizeBtnStyle = `p-2 text-sm rounded-xl uppercase outline-none text-gray-600 hover:scale-105 font-semibold bg-purple-300`;
   return (
     <header>
       <div className="wrapper">
@@ -20,19 +23,13 @@ export const Header = () => {
           <h1>Game of Life</h1>
         </div>
 
-        <div className='mx-auto flex flex-col gap-3 bg-slate-100 rounded-2xl p-3'>
-
+        <div className="mx-auto flex flex-col gap-3 bg-slate-100 rounded-2xl p-3">
           <div>
-            <button
-              onClick={start}
-              className={btnStyle}>
-              {running ? 'Стоп' : 'Старт'}
+            <button onClick={start} className={btnStyle}>
+              {running ? "Стоп" : "Старт"}
             </button>
 
-            <button
-              onClick={clear}
-              className={defaultBtnStyle}
-            >
+            <button onClick={clear} className={defaultBtnStyle}>
               Сброс
             </button>
 
@@ -61,7 +58,10 @@ export const Header = () => {
           <div>
             <button
               disabled={running}
-              className={classNames(defaultSizeBtnStyle, 'disabled:bg-gray-400 disabled:text-gray-600')}
+              className={classNames(
+                                defaultSizeBtnStyle,
+                                "disabled:bg-gray-400 disabled:text-gray-600"
+                            )}
               onClick={() => setGridSize(50, 50)}
             >
               50/50
@@ -69,7 +69,10 @@ export const Header = () => {
 
             <button
               disabled={running}
-              className={classNames(defaultSizeBtnStyle, 'disabled:bg-gray-400 disabled:text-gray-600')}
+              className={classNames(
+                                defaultSizeBtnStyle,
+                                "disabled:bg-gray-400 disabled:text-gray-600"
+                            )}
               onClick={() => setGridSize(30, 30)}
             >
               30/30
@@ -77,15 +80,17 @@ export const Header = () => {
 
             <button
               disabled={running}
-              className={classNames(defaultSizeBtnStyle, 'disabled:bg-gray-400 disabled:text-gray-600')}
+              className={classNames(
+                                defaultSizeBtnStyle,
+                                "disabled:bg-gray-400 disabled:text-gray-600"
+                            )}
               onClick={() => setGridSize(100, 100)}
             >
               100/100
             </button>
           </div>
-
-        </div>
+                </div>
       </div>
     </header>
-  )
-}
+  );
+};

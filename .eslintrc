@@ -7,10 +7,7 @@
     "plugin:react-hooks/recommended",
     "plugin:jest/recommended"
   ],
-  "plugins": [
-    "react-hooks",
-    "jest"
-  ],
+  "plugins": ["react-hooks", "jest"],
   "settings": {
     "react": {
       "version": "detect"
@@ -24,6 +21,7 @@
         "endOfLine": "auto"
       }
     ],
+    "indent": ["error", 4, { "SwitchCase": 1 }],
     "no-restricted-syntax": [
       "error",
       {
@@ -34,10 +32,7 @@
     "no-console": [
       "error",
       {
-        "allow": [
-          "warn",
-          "error"
-        ]
+        "allow": ["warn", "error"]
       }
     ],
     "@typescript-eslint/explicit-function-return-type": 0,
@@ -54,29 +49,20 @@
   },
   "overrides": [
     {
-      "files": [
-        "webpack.config.js"
-      ],
+      "files": ["webpack.config.js"],
       "rules": {
-        "@typescript-eslint/no-var-requires": [
-          "off"
-        ]
+        "@typescript-eslint/no-var-requires": ["off"]
       }
     },
     {
-      "files": [
-        "*.stories.tsx"
-      ],
+      "files": ["*.stories.tsx"],
       "rules": {
         "no-restricted-syntax": "off",
         "@typescript-eslint/no-explicit-any": "off"
       }
     },
     {
-      "files": [
-        "*.test.tsx",
-        "*.test.ts"
-      ],
+      "files": ["*.test.tsx", "*.test.ts"],
       "rules": {
         "@typescript-eslint/no-explicit-any": "off"
       }

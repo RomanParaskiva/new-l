@@ -1,27 +1,26 @@
-import { useContext, useEffect } from 'react'
-import styled from 'styled-components'
-import FieldItem from '../FieldItem/FieldItem'
-import { gridContext } from '../../context/gridContext'
-import React from 'react'
+import React, { useContext } from "react";
+import styled from "styled-components";
+import { FieldItem } from "../FieldItem/FieldItem";
+import { gridContext } from "../../context/gridContext";
 
 type Props = {
-    numCols: number
-    numRows: number
-}
+  numCols: number;
+  numRows: number;
+};
 
 const Grid = styled.div<Props>`
-        display: grid;
-        grid-template-columns: repeat(${props => props.numCols}, 15px);
-        grid-template-rows: repeat(${props => props.numRows}, 15px);
-    `
+  display: grid;
+  grid-template-columns: repeat(${(props) => props.numCols}, 15px);
+  grid-template-rows: repeat(${(props) => props.numRows}, 15px);
+`;
 
-const Field = () => {
-    const { grid, size, handleItemClick } = useContext(gridContext)
+export const Field = () => {
+    const { grid, size, handleItemClick } = useContext(gridContext);
 
-    let props = {
+    const props = {
         numRows: size[0],
-        numCols: size[1]
-    }
+        numCols: size[1],
+    };
 
     return (
         <Grid {...props}>
@@ -30,14 +29,13 @@ const Field = () => {
                     <FieldItem
                         key={`${i}-${k}`}
                         handleClick={() => {
-                            handleItemClick(i, k)
+                            handleItemClick(i, k);
                         }}
                         itemValue={grid[i][k]}
                     />
                 ))
             )}
         </Grid>
-    )
-}
+    );
+};
 
-export default Field
