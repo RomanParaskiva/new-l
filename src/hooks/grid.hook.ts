@@ -1,5 +1,5 @@
 import produce from "immer";
-import { useCallback, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 const operations = [
   [0, 1],
@@ -34,8 +34,6 @@ export const useGrid = () => {
     const regenerateGrid = () => {
         setGrid((g) =>
             produce(g, (newGrid) => {
-                console.log(size);
-
                 for (let i = 0; i < size[0]; i++) {
                     for (let k = 0; k < size[1]; k++) {
                         let neighbors = 0;
@@ -99,7 +97,7 @@ export const useGrid = () => {
     };
 
     const setGridSize = (x: number, y: number) => {
-        setSize((prev) => [x, y]);
+        setSize(() => [x, y]);
         let newGrid: number[][] = [];
         if (x <= size[0]) {
             newGrid = produce(grid, (gCopy) => {

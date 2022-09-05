@@ -22,6 +22,6 @@
     },
     "include": [
       "src"
-, "types.d.ts"    ]
+, "types.d.ts", ".storybook/main.js"    ]
   }
   
