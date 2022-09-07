@@ -15,8 +15,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Setup Pages
-      uses: actions/configure-pages@v2
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
@@ -25,13 +23,8 @@ jobs:
     - run: npm ci
     - run: npm test
     - run: npm run build 
-    
   
     - name: Deploy 🚀
       uses: JamesIves/github-pages-deploy-action@v4
       with:
         folder: build # The folder the action should deploy.
-    - name: Upload artifact
-      uses: actions/upload-pages-artifact@v1
-
-     
