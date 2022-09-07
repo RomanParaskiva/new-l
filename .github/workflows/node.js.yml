@@ -25,6 +25,7 @@ jobs:
     - run: npm run build 
   
     - name: Deploy 🚀
-      uses: peaceiris/actions-gh-pages@v3
+      uses: JamesIves/github-pages-deploy-action@v4
       with:
-        publish_dir: ./build
+        folder: build # The folder the action should deploy.
+        
