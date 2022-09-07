@@ -15,27 +15,26 @@ const Grid = styled.div<Props>`
 `;
 
 export const Field = () => {
-    const { grid, size, handleItemClick } = useContext(gridContext);
+  const { grid, size, handleItemClick } = useContext(gridContext);
 
-    const props = {
-        numRows: size[0],
-        numCols: size[1],
-    };
+  const props = {
+    numRows: size[0],
+    numCols: size[1],
+  };
 
-    return (
-        <Grid {...props}>
-            {grid?.map((rows, i) =>
-                rows.map((col, k) => (
-                    <FieldItem
-                        key={`${i}-${k}`}
-                        handleClick={() => {
-                            handleItemClick(i, k);
-                        }}
-                        itemValue={grid[i][k]}
-                    />
-                ))
-            )}
-        </Grid>
-    );
+  return (
+    <Grid {...props}>
+      {grid?.map((rows, i) =>
+        rows.map((col, k) => (
+          <FieldItem
+            key={`${i}-${k}`}
+            handleClick={() => {
+              handleItemClick(i, k);
+            }}
+            itemValue={grid[i][k]}
+          />
+        ))
+      )}
+    </Grid>
+  );
 };
-

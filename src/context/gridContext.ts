@@ -12,19 +12,29 @@ export type GridContext = {
 };
 
 const grid: number[][] = [];
-const start = () => {};
-const handleItemClick = () => {};
-const clear = () => {};
-const changeSpeed = () => {};
-const setGridSize = () => {};
+const start = () => {
+  // do nothing
+};
+const handleItemClick = () => {
+  // do nothing
+};
+const clear = () => {
+  // do nothing
+};
+const changeSpeed = () => {
+  // do nothing
+};
+const setGridSize = () => {
+  // do nothing
+};
 const size = [50, 50];
 
 export const gridContext = createContext<GridContext>({
-    grid,
-    start,
-    handleItemClick,
-    clear,
-    size,
-    changeSpeed,
-    setGridSize,
+  grid,
+  start,
+  handleItemClick,
+  clear,
+  size,
+  changeSpeed,
+  setGridSize,
 });

@@ -1,3 +1,4 @@
+import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { Page } from "../components/Page/Page";
 
@@ -13,5 +14,3 @@ export default {
 const Template: ComponentStory<typeof Page> = (args) => <Page {...args} />;
 
 export const NormalPage = Template.bind({});
-
-

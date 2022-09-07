@@ -1,6 +1,7 @@
+import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { FieldItem } from "../components/FieldItem/FieldItem";
-import '../index.css';
+import "../index.css";
 
 export default {
   title: "FieldItem",
@@ -11,18 +12,24 @@ export default {
   },
 } as ComponentMeta<typeof FieldItem>;
 
-const Template: ComponentStory<typeof FieldItem> = (args) => <FieldItem {...args}/>;
+const Template: ComponentStory<typeof FieldItem> = (args) => (
+  <FieldItem {...args} />
+);
 
 export const NormalFieldItem = Template.bind({});
 
 NormalFieldItem.args = {
-  handleClick: () => {},
-  itemValue: 0
-}
+  handleClick: () => {
+    // do nothing
+  },
+  itemValue: 0,
+};
 
 export const ClickedFieldItem = Template.bind({});
 
 ClickedFieldItem.args = {
-  handleClick: () => {},
-  itemValue: 1
-}
+  handleClick: () => {
+    // do nothing
+  },
+  itemValue: 1,
+};
