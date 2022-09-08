@@ -1,19 +1,19 @@
-import React from 'react'
+import React from "react";
 
-import { Header } from '../Header/Header'
-import { TodoList } from '../TodoList/TodoList'
-import './page.css'
-
+import { Header } from "../Header/Header";
+import { Field } from "../Field/Field";
+// import { LoginForm } from "../LoginForm/LoginForm";
+import "./page.css";
 
 export const Page: React.FC = () => {
-
   return (
-    <article>
+    <div className="h-screen">
       <Header />
 
-      <section>
-        <TodoList />
+      <section className="h-full">
+        <Field />
+        {/* <LoginForm /> */}
       </section>
-    </article>
-  )
-}
+    </div>
+  );
+};
