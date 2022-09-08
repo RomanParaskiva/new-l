@@ -8,7 +8,7 @@ describe("test LoginForm", () => {
   test("renders LoginForm component", async () => {
     render(<LoginForm />);
 
-    expect(await screen.findByText(/start/)).not.toBeNull();
+    expect(await screen.findByText(/start/)).toBeInTheDocument();
   });
 
   test("LoginForm snapshot", () => {

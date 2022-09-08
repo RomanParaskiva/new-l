@@ -14,4 +14,4 @@ export default {
 
 const Template: ComponentStory<typeof LoginForm> = () => <LoginForm />;
 
-export const NormalLoginForm = Template.bind({});
+export const NormalLoginForm = Template;

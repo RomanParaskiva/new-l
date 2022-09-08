@@ -20,4 +20,4 @@ const Template: ComponentStory<typeof Field> = () => (
   </gridContext.Provider>
 );
 
-export const NormalField = Template.bind({});
+export const NormalField = Template;
