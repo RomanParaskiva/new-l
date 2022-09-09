@@ -25,6 +25,6 @@
     "node_modules"
   ],
   "include": [
-    "src", "types.d.ts", ".storybook/main.js", "index.d.ts"
+    "src", "types.d.ts", ".storybook/main.js", "index.d.ts", "webpack.config.ts"
   ]
 }
