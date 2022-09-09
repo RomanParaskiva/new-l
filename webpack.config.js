@@ -12,7 +12,7 @@ const config = {
       {
         test: /\.(js|ts)x?$/,
         loader: require.resolve('babel-loader'),
-        exclude: /node_modules/,
+        exclude: /node_modules/
       },
       {
         test: /\.css$/,
@@ -20,28 +20,28 @@ const config = {
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
-        type: 'asset',
-      },
-    ],
+        type: 'asset'
+      }
+    ]
   },
   resolve: { extensions: ['*', '.js', '.jsx', '.ts', '.tsx'] },
   output: {
     path: path.join(__dirname, '/dist'),
     filename: './index.js',
     publicPath: '/',
-    globalObject: '(typeof self!="undefined"?self:global)',
+    globalObject: '(typeof self!="undefined"?self:global)'
   },
   devServer: {
     historyApiFallback: true,
     hot: true,
-    liveReload: true,
+    liveReload: true
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
-      template: './public/index.html',
-    }),
-  ],
+      template: './public/index.html'
+    })
+  ]
 }
 
 module.exports = () => {
