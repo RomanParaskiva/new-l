@@ -22,7 +22,9 @@
         "endOfLine": "auto"
       }
     ],
-    "indent": ["error", 2, { "SwitchCase": 1 }],
+    "indent": ["error", 2, {
+      "SwitchCase": 1
+    }],
     "no-restricted-syntax": [
       "error",
       {
@@ -45,16 +47,18 @@
     "react/display-name": 0
   },
   "parserOptions": {
-    "sourceType": "module",
-    "ecmaVersion": 2018,
-    "project": ["./tsconfig.json"]
+    "requireConfigFile": false,
+    "ecmaVersion": 2020,
+    "ecmaFeatures": {
+      "legacyDecorators": true,
+      "jsx": true
+    }
   },
-  "overrides": [
-    {
+  "overrides": [{
       "files": ["*.ts", "*.tsx"],
       "extends": [
         "plugin:@typescript-eslint/recommended",
-        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking"
       ],
       "parserOptions": {
         "project": ["./tsconfig.json"]
