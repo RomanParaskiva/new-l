@@ -56,6 +56,35 @@ export const useGrid = () => {
     );
   };
 
+  const getRandomInt = (max: number) => {
+    return Math.floor(Math.random() * max);
+  };
+
+  const getFreeRandomCell = (length: number, grid: number[][]) => {
+    const col = getRandomInt(length);
+    const row = getRandomInt(length);
+
+    if (grid[row][col] === 1) {
+      getFreeRandomCell(length, grid);
+    }
+
+    grid[row][col] = 1;
+  };
+
+  const fillRandomCells = (percent: number) => {
+    const cells = Math.pow(size[0], 2);
+
+    const requiredCellsAmount = (cells / 100) * percent;
+
+    const newGrid = produce(grid, (newGrid) => newGrid);
+
+    for (let i = 0; i < requiredCellsAmount; i++) {
+      getFreeRandomCell(size[0], newGrid);
+    }
+
+    setGrid(() => newGrid);
+  };
+
   const runningRef = useRef(running);
 
   const speedRef = useRef(speed);
@@ -146,5 +175,6 @@ export const useGrid = () => {
     handleItemClick,
     size,
     changeSpeed,
+    fillRandomCells,
   };
 };
