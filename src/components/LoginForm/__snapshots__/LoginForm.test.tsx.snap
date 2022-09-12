@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test LoginForm LoginForm snapshot 1`] = `
+<div>
+  <div
+    class="flex w-100 py-20 justify-center items-center"
+  >
+    <div
+      class="bg-gray-200 rounded p-3"
+    >
+      <form
+        class="flex flex-col gap-5"
+      >
+        <label
+          class="text-center font-semibold text-lg"
+        >
+          Ваше имя
+        </label>
+        <input
+          aria-label="userName"
+          class="outline-none text-black bg-transparentborder-gray-600 rounded-md border p-1"
+          data-testid="userName"
+          name="userName"
+          type="text"
+          value=""
+        />
+        <button
+          class="p-3 bg-green-400 rounded-md text-white uppercase "
+        >
+          start
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+`;
