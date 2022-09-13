@@ -75,14 +75,14 @@ export const useGrid = () => {
     const cells = Math.pow(size[0], 2);
 
     const requiredCellsAmount = (cells / 100) * percent;
-
-    const newGrid = produce(grid, (newGrid) => newGrid);
-
-    for (let i = 0; i < requiredCellsAmount; i++) {
-      getFreeRandomCell(size[0], newGrid);
-    }
-
-    setGrid(() => newGrid);
+    generateEmptyGrid();
+    setGrid((g) =>
+      produce(g, (newGrid) => {
+        for (let i = 0; i < requiredCellsAmount; i++) {
+          getFreeRandomCell(size[0], newGrid);
+        }
+      })
+    );
   };
 
   const runningRef = useRef(running);
