@@ -5,10 +5,6 @@ import "@testing-library/jest-dom";
 import { Sidebar } from "./Sidebar";
 
 describe("Sidebar tests", () => {
-  test("renders Sidebar component and get snapshot", () => {
-    expect(render(<Sidebar />)).toMatchSnapshot();
-  });
-
   test("render UI elements", async () => {
     render(<Sidebar />);
 
