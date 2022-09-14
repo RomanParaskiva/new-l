@@ -8,6 +8,7 @@ export type GridContext = {
   clear: () => void;
   changeSpeed: (v: number) => void;
   setGridSize: (x: number, y: number) => void;
+  fillRandomCells: (x: number) => void;
   size: number[];
 };
 
@@ -27,6 +28,10 @@ const changeSpeed = () => {
 const setGridSize = () => {
   // do nothing
 };
+
+const fillRandomCells = () => {
+  // do nothing
+};
 const size = [50, 50];
 
 export const gridContext = createContext<GridContext>({
@@ -37,4 +42,5 @@ export const gridContext = createContext<GridContext>({
   size,
   changeSpeed,
   setGridSize,
+  fillRandomCells,
 });

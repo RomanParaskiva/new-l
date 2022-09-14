@@ -14,59 +14,100 @@ exports[`test Page component renders Page component 1`] = `
             Game of Life
           </h1>
         </div>
+      </div>
+    </header>
+    <section
+      class="h-full flex gap-5"
+    >
+      <div>
         <div
-          class="mx-auto flex flex-col gap-3 bg-slate-100 rounded-2xl p-3"
+          class="mx-auto flex flex-col w-[300px] gap-3 bg-slate-100 rounded-2xl p-3"
         >
-          <div>
+          <fieldset
+            class="flex flex-col gap-2"
+          >
             <button
-              class="p-2 rounded-xl text-sm outline-none uppercase text-gray-600 hover:scale-105 font-semibold bg-green-300"
+              class="p-2 w-full text-sm rounded-xl uppercase outline-none text-gray-600 hover:scale-105 font-semibold bg-green-300"
             >
               Старт
             </button>
             <button
-              class="p-2 text-sm rounded-xl uppercase outline-none text-gray-600 hover:scale-105 font-semibold bg-blue-300"
+              class="p-2 w-full text-sm rounded-xl uppercase outline-none text-gray-600 hover:scale-105 font-semibold bg-blue-300"
             >
               Сброс
             </button>
+          </fieldset>
+          <fieldset
+            class="flex flex-col gap-2"
+          >
+            <legend>
+              Скорость
+            </legend>
             <button
-              class="p-2 text-sm rounded-xl uppercase outline-none text-gray-600 hover:scale-105 font-semibold bg-blue-300"
+              class="p-2 w-full text-sm rounded-xl uppercase outline-none text-gray-600 hover:scale-105 font-semibold bg-blue-300"
             >
-              обычная скорость
+              1
             </button>
             <button
-              class="p-2 text-sm rounded-xl uppercase outline-none text-gray-600 hover:scale-105 font-semibold bg-blue-300"
+              class="p-2 w-full text-sm rounded-xl uppercase outline-none text-gray-600 hover:scale-105 font-semibold bg-blue-300"
             >
-              быстрее
+              1.5
             </button>
             <button
-              class="p-2 text-sm rounded-xl uppercase outline-none text-gray-600 hover:scale-105 font-semibold bg-blue-300"
+              class="p-2 w-full text-sm rounded-xl uppercase outline-none text-gray-600 hover:scale-105 font-semibold bg-blue-300"
             >
-              еще быстрее
+              2
             </button>
-          </div>
-          <div>
+          </fieldset>
+          <fieldset
+            class="flex flex-col gap-2"
+          >
+            <legend>
+              Размеры
+            </legend>
             <button
-              class="p-2 text-sm rounded-xl uppercase outline-none text-gray-600 hover:scale-105 font-semibold bg-purple-300 disabled:bg-gray-400 disabled:text-gray-600"
+              class="p-2 w-full text-sm rounded-xl uppercase outline-none text-gray-600 hover:scale-105 font-semibold bg-purple-300 disabled:bg-gray-400 disabled:text-gray-600"
             >
               50/50
             </button>
             <button
-              class="p-2 text-sm rounded-xl uppercase outline-none text-gray-600 hover:scale-105 font-semibold bg-purple-300 disabled:bg-gray-400 disabled:text-gray-600"
+              class="p-2 w-full text-sm rounded-xl uppercase outline-none text-gray-600 hover:scale-105 font-semibold bg-purple-300 disabled:bg-gray-400 disabled:text-gray-600"
             >
               30/30
             </button>
             <button
-              class="p-2 text-sm rounded-xl uppercase outline-none text-gray-600 hover:scale-105 font-semibold bg-purple-300 disabled:bg-gray-400 disabled:text-gray-600"
+              class="p-2 w-full text-sm rounded-xl uppercase outline-none text-gray-600 hover:scale-105 font-semibold bg-purple-300 disabled:bg-gray-400 disabled:text-gray-600"
             >
               100/100
             </button>
-          </div>
+          </fieldset>
+          <fieldset>
+            <legend>
+              Процент заполнености
+            </legend>
+            <div
+              class="relative pt-1"
+            >
+              <label
+                class="form-label"
+                data-testid="rangeLabel"
+                for="customRange1"
+              >
+                0 %
+              </label>
+              <input
+                class="form-range appearance-none w-full h-3 rounded-lg p-0 bg-blue-100 focus:outline-none focus:ring-0 focus:shadow-none"
+                data-testid="rangeInput"
+                id="customRange1"
+                max="80"
+                min="0"
+                type="range"
+                value="0"
+              />
+            </div>
+          </fieldset>
         </div>
       </div>
-    </header>
-    <section
-      class="h-full"
-    >
       <div
         class="sc-bczRLJ lijUsN"
       />
