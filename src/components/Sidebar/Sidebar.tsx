@@ -24,6 +24,11 @@ export const Sidebar = () => {
     fillRandomCells(+e.target.value);
   };
 
+  const handleClearClick = () => {
+    clear();
+    setRangeValue(() => "0");
+  };
+
   return (
     <div>
       <div className="mx-auto flex flex-col w-[300px] gap-3 bg-slate-100 rounded-2xl p-3">
@@ -32,7 +37,7 @@ export const Sidebar = () => {
             {running ? "Стоп" : "Старт"}
           </button>
 
-          <button onClick={clear} className={blueBtn}>
+          <button onClick={handleClearClick} className={blueBtn}>
             Сброс
           </button>
         </fieldset>
