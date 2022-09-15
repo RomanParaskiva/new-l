@@ -8,14 +8,13 @@ import { useAuth } from "../../hooks/auth.hook";
 import { LoginForm } from "./LoginForm";
 
 describe("test LoginForm", () => {
-
-  test("renders LoginForm component", async () => {
+  test("renders LoginForm component", () => {
     render(<LoginForm />);
 
-    expect(await screen.findByText(/start/)).toBeInTheDocument();
+    expect(screen.findByText(/start/)).toBeInTheDocument();
   });
 
-  test("input change", async () => {
+  test("input change", () => {
     render(<LoginForm />);
 
     const input = screen.getByTestId("userName");
@@ -25,7 +24,7 @@ describe("test LoginForm", () => {
     waitFor(() => expect(input).toHaveValue("Roman"));
   });
 
-  test("login", async () => {
+  test("login", () => {
     const { result } = renderHook(() => useAuth());
 
     render(<LoginForm />);

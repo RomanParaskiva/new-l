@@ -10,7 +10,7 @@ export type authContext = {
 const user = "";
 const authed = false;
 const login = (name: string) => {
-  //do nothing
+  name;
 };
 
 const logout = () => {

@@ -8,7 +8,7 @@ export const useAuth = () => {
     const name = window.localStorage.getItem("userName");
     if (name) {
       login(name);
-      window.location.replace('/')
+      window.location.replace("/");
     }
   }, []);
 
