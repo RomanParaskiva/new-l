@@ -13,16 +13,4 @@ describe("tests FieldItem component", () => {
 
     expect(handleClick).toBeCalled();
   });
-
-  test("snapshot FieldItem component", () => {
-    act(() => {
-      const handleClick = jest.fn();
-
-      const { container } = render(
-        <FieldItem handleClick={handleClick} itemValue={0} />
-      );
-
-      expect(container).toMatchSnapshot();
-    });
-  });
 });

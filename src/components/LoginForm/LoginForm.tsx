@@ -1,7 +1,9 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, useContext, useState } from "react";
+import { authContext } from "../../context/authContext";
 
 export const LoginForm = () => {
   const [name, setName] = useState("");
+  const { login } = useContext(authContext);
 
   const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
     setName(() => e.target.value);
@@ -9,7 +11,8 @@ export const LoginForm = () => {
 
   const handleStart = () => {
     if (name.length > 3) {
-      localStorage.setItem("userName", name);
+      login(name);
+      window.location.replace("/");
     }
   };
 
