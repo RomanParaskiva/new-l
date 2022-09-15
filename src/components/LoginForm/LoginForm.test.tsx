@@ -11,7 +11,7 @@ describe("test LoginForm", () => {
   test("renders LoginForm component", () => {
     render(<LoginForm />);
 
-    expect(screen.findByText(/start/)).toBeInTheDocument();
+    waitFor(() => expect(screen.findByText(/start/)).toBeInTheDocument());
   });
 
   test("input change", () => {
