@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter } from "react-router-dom";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { Page } from "../components/Page/Page";
 
@@ -11,6 +12,6 @@ export default {
   },
 } as ComponentMeta<typeof Page>;
 
-const Template: ComponentStory<typeof Page> = (args) => <Page {...args} />;
+const Template: ComponentStory<typeof Page> = (args) => <BrowserRouter><Page {...args} /></BrowserRouter>;
 
 export const NormalPage = Template.bind({});
