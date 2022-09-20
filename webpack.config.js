@@ -27,7 +27,7 @@ const config = {
   },
   resolve: { extensions: ["*", ".js", ".jsx", ".ts", ".tsx"] },
   output: {
-    path: path.join(__dirname, "/dist"),
+    path: path.join(__dirname, "/build"),
     filename: "./index.js",
     publicPath: "auto",
     globalObject: '(typeof self!="undefined"?self:global)',

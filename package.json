@@ -21,7 +21,7 @@
   },
   "scripts": {
     "start": "webpack serve --mode development --hot",
-    "build": "npx webpack --mode production",
+    "build": "npx webpack --mode production --base",
     "calc": "npx ts-node scripts/calc",
     "lint": "eslint . --fix",
     "test": "jest",
