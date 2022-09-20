@@ -1,7 +1,7 @@
 {
   "name": "new-l",
   "version": "0.1.0",
-  "homepage": "/",
+  "homepage": "/new-l",
   "private": true,
   "dependencies": {
     "@types/node": "^16.11.43",
