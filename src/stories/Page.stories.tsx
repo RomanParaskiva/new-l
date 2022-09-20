@@ -1,7 +1,8 @@
 import React from "react";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { Page } from "../components/Page/Page";
+import { AuthProvider } from "../hooks/auth.hook";
 
 export default {
   title: "Example/Page",
@@ -13,9 +14,11 @@ export default {
 } as ComponentMeta<typeof Page>;
 
 const Template: ComponentStory<typeof Page> = (args) => (
-  <BrowserRouter>
-    <Page {...args} />
-  </BrowserRouter>
+  <Router>
+    <AuthProvider>
+      <Page {...args} />
+    </AuthProvider>
+  </Router>
 );
 
 export const NormalPage = Template.bind({});
