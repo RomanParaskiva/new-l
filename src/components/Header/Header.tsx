@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
-import { authContext } from "../../context/authContext";
+import React from "react";
+import { useAuth } from "../../hooks/auth.hook";
 import "./header.css";
 
 export const Header = () => {
-  const { user, authed, logout } = useContext(authContext);
+  const { user, authed, logout } = useAuth();
   return (
     <header>
       <div className="wrapper">

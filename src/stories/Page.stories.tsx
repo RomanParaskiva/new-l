@@ -12,6 +12,10 @@ export default {
   },
 } as ComponentMeta<typeof Page>;
 
-const Template: ComponentStory<typeof Page> = (args) => <BrowserRouter><Page {...args} /></BrowserRouter>;
+const Template: ComponentStory<typeof Page> = (args) => (
+  <BrowserRouter>
+    <Page {...args} />
+  </BrowserRouter>
+);
 
 export const NormalPage = Template.bind({});

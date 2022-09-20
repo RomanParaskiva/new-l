@@ -4,18 +4,34 @@ import { renderHook } from "@testing-library/react-hooks/dom";
 import "@testing-library/jest-dom/extend-expect";
 import userEvent from "@testing-library/user-event";
 import { useAuth } from "../../hooks/auth.hook";
+import { AuthProvider } from "../../hooks/auth.hook";
 
 import { LoginForm } from "./LoginForm";
+import { BrowserRouter as Router } from "react-router-dom";
 
 describe("test LoginForm", () => {
-  test("renders LoginForm component", () => {
-    render(<LoginForm />);
+  test("renders LoginForm component", async () => {
+    const { container } = render(
+      <Router>
+        <AuthProvider>
+          <LoginForm />
+        </AuthProvider>
+      </Router>
+    );
 
-    waitFor(() => expect(screen.findByText(/start/)).toBeInTheDocument());
+    await waitFor(() =>
+      expect(container.querySelector("button")).toBeInTheDocument()
+    );
   });
 
   test("input change", () => {
-    render(<LoginForm />);
+    render(
+      <Router>
+        <AuthProvider>
+          <LoginForm />
+        </AuthProvider>
+      </Router>
+    );
 
     const input = screen.getByTestId("userName");
 
@@ -27,7 +43,13 @@ describe("test LoginForm", () => {
   test("login", () => {
     const { result } = renderHook(() => useAuth());
 
-    render(<LoginForm />);
+    render(
+      <Router>
+        <AuthProvider>
+          <LoginForm />
+        </AuthProvider>
+      </Router>
+    );
 
     const input = screen.getByTestId("userName");
 

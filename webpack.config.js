@@ -29,7 +29,7 @@ const config = {
   output: {
     path: path.join(__dirname, "/dist"),
     filename: "./index.js",
-    publicPath: "/",
+    publicPath: "auto",
     globalObject: '(typeof self!="undefined"?self:global)',
   },
   devServer: {

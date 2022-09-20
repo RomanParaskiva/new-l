@@ -1,9 +1,9 @@
-import React, { ChangeEvent, useContext, useState } from "react";
-import { authContext } from "../../context/authContext";
+import React, { ChangeEvent, useState } from "react";
+import { useAuth } from "../../hooks/auth.hook";
 
 export const LoginForm = () => {
   const [name, setName] = useState("");
-  const { login } = useContext(authContext);
+  const { login } = useAuth();
 
   const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
     setName(() => e.target.value);
@@ -12,7 +12,6 @@ export const LoginForm = () => {
   const handleStart = () => {
     if (name.length > 3) {
       login(name);
-      window.location.replace("/");
     }
   };
 

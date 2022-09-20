@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen, act } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { FieldItem } from "./FieldItem";
 import userEvent from "@testing-library/user-event";
 
@@ -11,6 +11,6 @@ describe("tests FieldItem component", () => {
 
     await userEvent.click(screen.getByTestId("field-item"));
 
-    expect(handleClick).toBeCalled();
+    expect(handleClick).toHaveBeenCalled();
   });
 });
