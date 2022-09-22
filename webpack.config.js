@@ -2,22 +2,48 @@ const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ESLintPlugin = require("eslint-webpack-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const isProduction = process.env.NODE_ENV === "production";
 
 const config = {
   entry: "./src/index.tsx",
-  mode: "development",
+  output: {
+    path: path.resolve(__dirname, "build"),
+    filename: "[name].[contenthash].js",
+    clean: true,
+    publicPath: "",
+    // globalObject: '(typeof self!="undefined"?self:global)',
+  },
   module: {
     rules: [
       {
-        test: /\.(js|ts)x?$/,
-        loader: require.resolve("babel-loader"),
+        test: /\.(ts|js)x?$/i,
         exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: [
+              "@babel/preset-env",
+              "@babel/preset-react",
+              "@babel/preset-typescript",
+            ],
+          },
+        },
       },
       {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader", "postcss-loader"],
+        test: /\.css$/i,
+        include: path.resolve(__dirname, 'src'),
+        exclude: /node_modules/,
+        use: [MiniCssExtractPlugin.loader,
+        {
+          loader: 'css-loader',
+          options: {
+            importLoaders: 1
+          }
+        },
+          'postcss-loader'
+        ]
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
@@ -25,19 +51,17 @@ const config = {
       },
     ],
   },
-  resolve: { extensions: ["*", ".js", ".jsx", ".ts", ".tsx"] },
-  output: {
-    path: path.join(__dirname, "/build"),
-    filename: "./index.js",
-    publicPath: "auto",
-    globalObject: '(typeof self!="undefined"?self:global)',
-  },
+  resolve: { extensions: ["*", ".js", ".jsx", ".ts", ".tsx", ".json"] },
   devServer: {
     historyApiFallback: true,
     hot: true,
     liveReload: true,
   },
   plugins: [
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+      chunkFilename: '[id].css'
+    }),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: "./public/index.html",

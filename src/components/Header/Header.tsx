@@ -1,6 +1,5 @@
 import React from "react";
 import { useAuth } from "../../hooks/auth.hook";
-import "./header.css";
 
 export const Header = () => {
   const { user, authed, logout } = useAuth();
