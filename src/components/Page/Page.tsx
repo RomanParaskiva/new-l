@@ -6,7 +6,7 @@ import { Sidebar } from "../Sidebar/Sidebar";
 /* eslint-disable react/display-name */
 export const Page: React.FC = memo(() => {
   return (
-    <div className="h-screen w-full">
+    <div className="h-screen">
       <Header />
       <section className="h-full flex gap-5">
         <Sidebar />
