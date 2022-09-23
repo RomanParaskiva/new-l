@@ -18,7 +18,7 @@ export const ProtectedRoute = ({ children }: { children: JSX.Element }) => {
 
 export const App = () => {
   const value = useGrid();
-
+  
   return (
     <AuthProvider>
       <gridContext.Provider value={{ ...value }}>
