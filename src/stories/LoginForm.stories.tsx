@@ -2,6 +2,8 @@ import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import { LoginForm } from "../components/LoginForm/LoginForm";
+import { BrowserRouter as Router } from "react-router-dom";
+import { AuthProvider } from "../hooks/auth.hook";
 
 export default {
   title: "LoginForm",
@@ -12,6 +14,12 @@ export default {
   },
 } as ComponentMeta<typeof LoginForm>;
 
-const Template: ComponentStory<typeof LoginForm> = () => <LoginForm />;
+const Template: ComponentStory<typeof LoginForm> = () => (
+  <Router>
+    <AuthProvider>
+      <LoginForm />
+    </AuthProvider>
+  </Router>
+);
 
 export const NormalLoginForm = Template;

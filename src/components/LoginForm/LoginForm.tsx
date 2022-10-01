@@ -1,7 +1,9 @@
 import React, { ChangeEvent, useState } from "react";
+import { useAuth } from "../../hooks/auth.hook";
 
 export const LoginForm = () => {
   const [name, setName] = useState("");
+  const { login } = useAuth();
 
   const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
     setName(() => e.target.value);
@@ -9,7 +11,7 @@ export const LoginForm = () => {
 
   const handleStart = () => {
     if (name.length > 3) {
-      localStorage.setItem("userName", name);
+      login(name);
     }
   };
 

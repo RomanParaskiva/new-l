@@ -2,6 +2,8 @@ import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import { Header } from "../components/Header/Header";
+import { BrowserRouter as Router } from "react-router-dom";
+import { AuthProvider } from "../hooks/auth.hook";
 
 export default {
   title: "Example/Header",
@@ -12,6 +14,12 @@ export default {
   },
 } as ComponentMeta<typeof Header>;
 
-const Template: ComponentStory<typeof Header> = () => <Header />;
+const Template: ComponentStory<typeof Header> = () => (
+  <Router>
+    <AuthProvider>
+      <Header />
+    </AuthProvider>
+  </Router>
+);
 
 export const NormalHeader = Template;

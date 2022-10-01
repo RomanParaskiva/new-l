@@ -1,30 +1,62 @@
 import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
+import { renderHook } from "@testing-library/react-hooks/dom";
 import "@testing-library/jest-dom/extend-expect";
 import userEvent from "@testing-library/user-event";
+import { useAuth } from "../../hooks/auth.hook";
+import { AuthProvider } from "../../hooks/auth.hook";
 
 import { LoginForm } from "./LoginForm";
+import { BrowserRouter as Router } from "react-router-dom";
 
 describe("test LoginForm", () => {
   test("renders LoginForm component", async () => {
-    render(<LoginForm />);
+    const { container } = render(
+      <Router>
+        <AuthProvider>
+          <LoginForm />
+        </AuthProvider>
+      </Router>
+    );
 
-    expect(await screen.findByText(/start/)).toBeInTheDocument();
+    await waitFor(() =>
+      expect(container.querySelector("button")).toBeInTheDocument()
+    );
   });
 
-  test("LoginForm snapshot", () => {
-    const { container } = render(<LoginForm />);
-
-    expect(container).toMatchSnapshot();
-  });
-
-  test("input change", async () => {
-    render(<LoginForm />);
+  test("input change", () => {
+    render(
+      <Router>
+        <AuthProvider>
+          <LoginForm />
+        </AuthProvider>
+      </Router>
+    );
 
     const input = screen.getByTestId("userName");
 
-    await userEvent.type(input, "Roman");
+    userEvent.type(input, "Roman");
 
-    await waitFor(() => expect(input).toHaveDisplayValue("Roman"));
+    waitFor(() => expect(input).toHaveValue("Roman"));
+  });
+
+  test("login", () => {
+    const { result } = renderHook(() => useAuth());
+
+    render(
+      <Router>
+        <AuthProvider>
+          <LoginForm />
+        </AuthProvider>
+      </Router>
+    );
+
+    const input = screen.getByTestId("userName");
+
+    userEvent.type(input, "Roman");
+
+    waitFor(() => userEvent.click(screen.getByText(/start/)));
+
+    waitFor(() => expect(result.current.authed).toBeTruthy());
   });
 });
