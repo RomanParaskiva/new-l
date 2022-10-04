@@ -1,5 +1,7 @@
 import React from "react";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { act, fireEvent, render, screen } from "@testing-library/react";
+import { useGrid } from "../../hooks/grid.hook";
+import { renderHook } from "@testing-library/react";
 import "@testing-library/jest-dom";
 
 import { Sidebar } from "./Sidebar";
@@ -21,14 +23,20 @@ describe("Sidebar tests", () => {
     expect(await screen.findByText("50/50")).toBeInTheDocument();
   });
 
-  test("chane range Input", () => {
+  test("change range Input", async () => {
     render(<Sidebar />);
 
     const input = screen.getByTestId("rangeInput");
     const label = screen.getByTestId("rangeLabel");
+    const clear = await screen.findByText(/Сброс/);
 
     fireEvent.change(input, { target: { value: 60 } });
 
     expect(label).toHaveTextContent("60 %");
+
+    fireEvent.click(clear);
+
+    expect(label).toHaveTextContent("0 %");
   });
+
 });

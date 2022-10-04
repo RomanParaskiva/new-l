@@ -12,7 +12,7 @@ export interface AuthContextType {
   authed: boolean;
   login: (n: string) => void;
   logout: () => void;
-}
+};
 
 export const AuthContext = createContext<AuthContextType>(null!);
 
