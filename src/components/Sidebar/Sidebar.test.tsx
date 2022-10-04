@@ -1,7 +1,5 @@
 import React from "react";
-import { act, fireEvent, render, screen } from "@testing-library/react";
-import { useGrid } from "../../hooks/grid.hook";
-import { renderHook } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 
 import { Sidebar } from "./Sidebar";
