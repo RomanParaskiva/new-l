@@ -1,7 +1,7 @@
-import React, { useContext } from "react";
+import React from "react";
 import styled from "styled-components";
+import { useGrid } from "../../hooks/grid.hook";
 import { FieldItem } from "../FieldItem/FieldItem";
-import { gridContext } from "../../context/gridContext";
 
 type Props = {
   numCols: number;
@@ -15,7 +15,7 @@ const Grid = styled.div<Props>`
 `;
 
 export const Field = () => {
-  const { grid, size, handleItemClick } = useContext(gridContext);
+  const { grid, size, handleItemClick } = useGrid();
 
   const props = {
     numRows: size[0],
@@ -23,7 +23,7 @@ export const Field = () => {
   };
 
   return (
-    <Grid {...props}>
+    <Grid {...props} data-testid="grid">
       {grid?.map((rows, i) =>
         rows.map((col, k) => (
           <FieldItem

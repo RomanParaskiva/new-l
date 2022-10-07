@@ -3,10 +3,15 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 
 import { Sidebar } from "./Sidebar";
+import { GridProvider } from "../../hooks/grid.hook";
 
 describe("Sidebar tests", () => {
   test("render UI elements", async () => {
-    render(<Sidebar />);
+    render(
+      <GridProvider>
+        <Sidebar />
+      </GridProvider>
+    );
 
     expect(await screen.findByText(/Старт/)).toBeInTheDocument();
 
@@ -22,7 +27,11 @@ describe("Sidebar tests", () => {
   });
 
   test("change range Input", async () => {
-    render(<Sidebar />);
+    render(
+      <GridProvider>
+        <Sidebar />
+      </GridProvider>
+    );
 
     const input = screen.getByTestId("rangeInput");
     const label = screen.getByTestId("rangeLabel");
@@ -36,5 +45,4 @@ describe("Sidebar tests", () => {
 
     expect(label).toHaveTextContent("0 %");
   });
-
 });
