@@ -7,7 +7,8 @@ const getPreloadedState = () => {
   let state;
 
   try {
-    state = JSON.parse(localStorage.getItem("state") as string);
+    const value = localStorage.getItem("state");
+    state = value ? JSON.parse(value) : value;
   } catch (e) {}
 
   return state;
