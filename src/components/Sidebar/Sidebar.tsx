@@ -1,11 +1,11 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import classNames from "classnames";
-import { gridContext } from "../../context/gridContext";
+import { useGrid } from "../../hooks/grid.hook";
 
 export const Sidebar = () => {
   const [rangeValue, setRangeValue] = useState<string>("0");
   const { start, clear, running, changeSpeed, setGridSize, fillRandomCells } =
-    useContext(gridContext);
+    useGrid();
 
   const defaultBtn =
     "p-2 w-full text-sm rounded-xl uppercase outline-none text-gray-600 hover:scale-105 font-semibold";

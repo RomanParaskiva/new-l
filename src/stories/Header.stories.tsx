@@ -4,6 +4,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { Header } from "../components/Header/Header";
 import { BrowserRouter as Router } from "react-router-dom";
 import { AuthProvider } from "../hooks/auth.hook";
+import { GridProvider } from "../hooks/grid.hook";
 
 export default {
   title: "Example/Header",
@@ -17,7 +18,9 @@ export default {
 const Template: ComponentStory<typeof Header> = () => (
   <Router>
     <AuthProvider>
-      <Header />
+      <GridProvider>
+        <Header />
+      </GridProvider>
     </AuthProvider>
   </Router>
 );

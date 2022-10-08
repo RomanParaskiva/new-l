@@ -1,11 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import { Page } from "./components/Page/Page";
-import { gridContext } from "./context/gridContext";
-import { useGrid } from "./hooks/grid.hook";
 import { useAuth } from "./hooks/auth.hook";
 import { LoginForm } from "./components/LoginForm/LoginForm";
-import { AuthProvider } from "./hooks/auth.hook";
 
 export const ProtectedRoute = ({ children }: { children: JSX.Element }) => {
   const { authed } = useAuth();
@@ -17,25 +14,28 @@ export const ProtectedRoute = ({ children }: { children: JSX.Element }) => {
 };
 
 export const App = () => {
-  const value = useGrid();
-  
+  const { login, authed} = useAuth();
+
+  useEffect(() => {
+    const name = localStorage.getItem("userName");
+    
+    if(name) login(name);
+  },[login, authed])
+
+
   return (
-    <AuthProvider>
-      <gridContext.Provider value={{ ...value }}>
-        <div className="App">
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <ProtectedRoute>
-                  <Page />
-                </ProtectedRoute>
-              }
-            />
-            <Route path="/login" element={<LoginForm />} />
-          </Routes>
-        </div>
-      </gridContext.Provider>
-    </AuthProvider>
+    <div className="App">
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <ProtectedRoute>
+              <Page />
+            </ProtectedRoute>
+          }
+        />
+        <Route path="/login" element={<LoginForm />} />
+      </Routes>
+    </div>
   );
 };

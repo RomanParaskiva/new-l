@@ -5,13 +5,16 @@ import "@testing-library/jest-dom/extend-expect";
 
 import { Page } from "./Page";
 import { AuthProvider } from "../../hooks/auth.hook";
+import { GridProvider } from "../../hooks/grid.hook";
 
 describe("test Page component", () => {
   test("renders Page component", () => {
     const { container } = render(
       <Router>
         <AuthProvider>
-          <Page />
+          <GridProvider>
+            <Page />
+          </GridProvider>
         </AuthProvider>
       </Router>
     );
