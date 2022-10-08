@@ -3,6 +3,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { Page } from "../components/Page/Page";
 import { AuthProvider } from "../hooks/auth.hook";
+import { GridProvider } from "../hooks/grid.hook";
 
 export default {
   title: "Example/Page",
@@ -16,7 +17,9 @@ export default {
 const Template: ComponentStory<typeof Page> = (args) => (
   <Router>
     <AuthProvider>
-      <Page {...args} />
+      <GridProvider>
+        <Page {...args} />
+      </GridProvider>
     </AuthProvider>
   </Router>
 );

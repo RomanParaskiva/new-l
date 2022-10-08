@@ -1,8 +1,7 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { Field } from "../components/Field/Field";
-import { GridContext } from "../hooks/grid.hook";
-import { useGrid } from "../hooks/grid.hook";
+import { GridProvider } from "../hooks/grid.hook";
 import "../index.css";
 
 export default {
@@ -15,9 +14,9 @@ export default {
 } as ComponentMeta<typeof Field>;
 
 const Template: ComponentStory<typeof Field> = () => (
-  <GridContext.Provider value={{ ...useGrid() }}>
+  <GridProvider>
     <Field />
-  </GridContext.Provider>
+  </GridProvider>
 );
 
 export const NormalField = Template;

@@ -2,6 +2,7 @@ import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import { Sidebar } from "../components/Sidebar/Sidebar";
+import { GridProvider } from "../hooks/grid.hook";
 
 export default {
   title: "Sidebar",
@@ -12,6 +13,6 @@ export default {
   },
 } as ComponentMeta<typeof Sidebar>;
 
-const Template: ComponentStory<typeof Sidebar> = () => <Sidebar />;
+const Template: ComponentStory<typeof Sidebar> = () => <GridProvider><Sidebar /></GridProvider>;
 
 export const NormalLoginForm = Template;
