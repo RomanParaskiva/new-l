@@ -3,7 +3,8 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import { LoginForm } from "../components/LoginForm/LoginForm";
 import { BrowserRouter as Router } from "react-router-dom";
-import { AuthProvider } from "../hooks/auth.hook";
+import { Provider } from "react-redux";
+import { store } from "../store/store";
 
 export default {
   title: "LoginForm",
@@ -16,9 +17,9 @@ export default {
 
 const Template: ComponentStory<typeof LoginForm> = () => (
   <Router>
-    <AuthProvider>
+    <Provider store={store}>
       <LoginForm />
-    </AuthProvider>
+    </Provider>
   </Router>
 );
 
