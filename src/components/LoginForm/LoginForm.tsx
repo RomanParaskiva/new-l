@@ -1,9 +1,17 @@
-import React, { ChangeEvent, useState } from "react";
-import { useAuth } from "../../hooks/auth.hook";
+import React, { ChangeEvent, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "../../hooks/redux.hook";
+import { login } from "../../store/slices/authSlice";
 
 export const LoginForm = () => {
   const [name, setName] = useState("");
-  const { login } = useAuth();
+  const dispatch = useAppDispatch();
+  const { authed } = useAppSelector((state) => state.auth);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (authed) navigate('/')
+  }, [authed, navigate])
 
   const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
     setName(() => e.target.value);
@@ -11,7 +19,7 @@ export const LoginForm = () => {
 
   const handleStart = () => {
     if (name.length > 3) {
-      login(name);
+      dispatch(login(name));
     }
   };
 

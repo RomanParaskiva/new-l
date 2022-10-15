@@ -1,5 +1,5 @@
 import React from "react";
-import { renderHook, act } from "@testing-library/react-hooks/dom";
+import { renderHook } from "@testing-library/react-hooks/dom";
 import { useGrid } from "./grid.hook";
 import { GridProvider } from "./grid.hook";
 

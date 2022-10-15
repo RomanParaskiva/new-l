@@ -1,27 +1,23 @@
 import React, { useEffect } from "react";
-import { Route, Routes, Navigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { Page } from "./components/Page/Page";
-import { useAuth } from "./hooks/auth.hook";
+import { login } from "./store/slices/authSlice";
+import { useAppDispatch, useAppSelector } from "./hooks/redux.hook";
 import { LoginForm } from "./components/LoginForm/LoginForm";
 
 export const ProtectedRoute = ({ children }: { children: JSX.Element }) => {
-  const { authed } = useAuth();
-
-  if (!authed) {
-    return <Navigate to="/login" replace />;
-  }
   return children;
 };
 
 export const App = () => {
-  const { login, authed} = useAuth();
+  const { authed } = useAppSelector((state) => state.auth);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     const name = localStorage.getItem("userName");
-    
-    if(name) login(name);
-  },[login, authed])
 
+    if (name && !authed) dispatch(login(name));
+  }, [authed, dispatch]);
 
   return (
     <div className="App">

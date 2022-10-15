@@ -3,7 +3,7 @@ import { Configuration as WebpackConfiguration, HotModuleReplacementPlugin } fro
 import { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-server';
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import ESLintPlugin from "eslint-webpack-plugin";
 
 interface Configuration extends WebpackConfiguration {
