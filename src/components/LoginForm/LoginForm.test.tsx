@@ -3,20 +3,21 @@ import { render, screen, waitFor } from "@testing-library/react";
 import { renderHook } from "@testing-library/react-hooks/dom";
 import "@testing-library/jest-dom/extend-expect";
 import userEvent from "@testing-library/user-event";
-import { useAuth } from "../../hooks/auth.hook";
-import { AuthProvider } from "../../hooks/auth.hook";
+import { Provider } from "react-redux";
+import { store } from "../../store/store";
 
 import { LoginForm } from "./LoginForm";
 import { BrowserRouter as Router } from "react-router-dom";
+import { useAppSelector } from "../../hooks/redux.hook";
 
 describe("test LoginForm", () => {
   test("renders LoginForm component", async () => {
     const { container } = render(
-      <Router>
-        <AuthProvider>
-          <LoginForm />
-        </AuthProvider>
-      </Router>
+      <Provider store={store}>
+        <Router>
+            <LoginForm />
+        </Router>
+      </Provider>
     );
 
     await waitFor(() =>
@@ -26,11 +27,11 @@ describe("test LoginForm", () => {
 
   test("input change", () => {
     render(
-      <Router>
-        <AuthProvider>
-          <LoginForm />
-        </AuthProvider>
-      </Router>
+      <Provider store={store}>
+        <Router>
+            <LoginForm />
+        </Router>
+      </Provider>
     );
 
     const input = screen.getByTestId("userName");
@@ -41,14 +42,14 @@ describe("test LoginForm", () => {
   });
 
   test("login", () => {
-    const { result } = renderHook(() => useAuth());
+    const { result } = renderHook(() => useAppSelector(state => state.auth));
 
     render(
-      <Router>
-        <AuthProvider>
-          <LoginForm />
-        </AuthProvider>
-      </Router>
+      <Provider store={store}>
+        <Router>
+            <LoginForm />
+        </Router>
+      </Provider>
     );
 
     const input = screen.getByTestId("userName");

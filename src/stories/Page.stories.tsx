@@ -2,7 +2,8 @@ import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { Page } from "../components/Page/Page";
-import { AuthProvider } from "../hooks/auth.hook";
+import { Provider } from "react-redux";
+import { store } from "../store/store";
 import { GridProvider } from "../hooks/grid.hook";
 
 export default {
@@ -16,11 +17,11 @@ export default {
 
 const Template: ComponentStory<typeof Page> = (args) => (
   <Router>
-    <AuthProvider>
+    <Provider store={store}>
       <GridProvider>
         <Page {...args} />
       </GridProvider>
-    </AuthProvider>
+    </Provider>
   </Router>
 );
 

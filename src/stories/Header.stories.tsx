@@ -3,7 +3,8 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import { Header } from "../components/Header/Header";
 import { BrowserRouter as Router } from "react-router-dom";
-import { AuthProvider } from "../hooks/auth.hook";
+import { Provider } from "react-redux";
+import { store } from "../store/store";
 import { GridProvider } from "../hooks/grid.hook";
 
 export default {
@@ -17,11 +18,11 @@ export default {
 
 const Template: ComponentStory<typeof Header> = () => (
   <Router>
-    <AuthProvider>
+    <Provider store={store}>
       <GridProvider>
         <Header />
       </GridProvider>
-    </AuthProvider>
+    </Provider>
   </Router>
 );
 
