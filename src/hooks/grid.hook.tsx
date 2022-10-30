@@ -10,7 +10,7 @@ import React, {
 import { operations, generateGrid } from "../utils/utils";
 
 export interface GridContextType {
-  grid?: number[][];
+  grid: number[][];
   running?: boolean;
   start: () => void;
   handleItemClick: (i: number, k: number) => void;
