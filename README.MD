@@ -4,16 +4,11 @@
   <h3 align="center">Game of Life</h3>
 </div>
 
-# Screens 
-
-![]("https://github.com/RomanParaskiva/new-l/public/login.png")
-
-![]("https://github.com/RomanParaskiva/new-l/public/main.png")
-
 ### Built With
 
 [![React][React.js]][React-url]
-[![Redux][Redux.js]][https://redux.js.org]
+![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
 
 <!-- GETTING STARTED -->
@@ -43,3 +38,5 @@
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 
 [React-url]: https://reactjs.org/
+
+[Redux-url]: https://redux.js.org
