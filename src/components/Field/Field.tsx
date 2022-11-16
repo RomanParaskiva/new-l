@@ -27,6 +27,7 @@ export const Field = () => {
       {grid?.map((rows, i) =>
         rows.map((col, k) => (
           <FieldItem
+            data-testid={`field-item-${i}-${k}`}
             key={`${i}-${k}`}
             handleClick={() => {
               handleItemClick(i, k);
